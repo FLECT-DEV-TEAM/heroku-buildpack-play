@@ -15,7 +15,7 @@ IVY_PATH=".ivy2"
 cd $BUILD_DIR
 
 # Unpack cache
-for DIR in $PLAY_PATH $IVY_PATH ; do
+for DIR in $PLAY_PATH ; do
   echo $DIR
   rm -rf $DIR
   if [ -d $CACHE_DIR/$DIR ]; then
