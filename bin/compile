@@ -88,7 +88,7 @@ $PLAY_PATH/play version | sed -u 's/^/       /'
 # Precompile the Play! application at the root of $BUILD_DIR
 APP_DIR=./
 echo "       Building Play! application at directory $APP_DIR"
-
+cat $BUILD_DIR/.ivy2/ivysettings.xml
 DEPENDENCIES_CMD="$PLAY_PATH/play dependencies $APP_DIR --debug --verbose --forProd --forceCopy --silent -Duser.home=$BUILD_DIR 2>&1"
 echo "       Resolving dependencies: $DEPENDENCIES_CMD"
 eval "$DEPENDENCIES_CMD" | sed -u 's/^/       /'
