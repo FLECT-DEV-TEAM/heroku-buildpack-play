@@ -5,6 +5,9 @@
 BUILD_DIR=$1
 CACHE_DIR=$2
 
+echo "BUILD_DIR=$BUILD_DIR"
+echo "CACHE_DIR=$CACHE_DIR"
+
 PLAY_PATH=".play"
 IVY_PATH=".ivy2"
 
@@ -13,8 +16,10 @@ cd $BUILD_DIR
 
 # Unpack cache
 for DIR in $PLAY_PATH $IVY_PATH ; do
+  echo $DIR
   rm -rf $DIR
   if [ -d $CACHE_DIR/$DIR ]; then
+    echo "cp -r $CACHE_DIR/$DIR"
     cp -r $CACHE_DIR/$DIR $DIR
   fi
 done
@@ -88,6 +93,7 @@ $PLAY_PATH/play version | sed -u 's/^/       /'
 # Precompile the Play! application at the root of $BUILD_DIR
 APP_DIR=./
 echo "       Building Play! application at directory $APP_DIR"
+echo `pwd`
 cat ./.ivy2/ivysettings.xml
 DEPENDENCIES_CMD="$PLAY_PATH/play dependencies $APP_DIR --forProd --forceCopy --silent -Duser.home=$BUILD_DIR 2>&1"
 echo "       Resolving dependencies: $DEPENDENCIES_CMD"
