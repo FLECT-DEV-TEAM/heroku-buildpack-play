@@ -80,6 +80,7 @@ echo -n "-----> Using ivysettings.xml in application root direcroty!"
 if [ ! -f .ivy2/ivysettings.xml ]; then
   #rm .ivy2/ivysettings.xml 
   echo 'ivysettings.xml not found! Please commit .ivy2/ivysettings.xml in your application root directory.'
+  exit 1
 fi
 # curl --silent --max-time 10 --location $PLAY_SETTINGS_URL --create-dirs --output .ivy2/ivysettings.xml
 echo " done"
